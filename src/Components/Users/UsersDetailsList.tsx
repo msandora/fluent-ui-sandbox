@@ -19,7 +19,7 @@ const rowsPlain = [
     items: ['Adam Roberts', 'adamroberts@trueearthhealth.com', '516-555-2456'],
   },
   {
-    key: 5,
+    key: 4,
     items: ['Mark Sandora', 'marksandora@trueearthhealth.com', '631-255-6333'],
   },
   {

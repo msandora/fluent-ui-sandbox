@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import {
   Provider,
   mergeThemes,
-  //teamsDarkTheme,
+  teamsDarkTheme,
   teamsTheme,
 } from '@fluentui/react-northstar';
 
@@ -19,7 +19,7 @@ import { ColorSchemeExample } from './Components/Test/ColorSchemeExample';
 const App = () => {
   return (
     <Fragment>
-      <Provider theme={mergeThemes(teamsTheme, theme)}>
+      <Provider theme={mergeThemes(teamsDarkTheme, theme)}>
         <Layout>
           <Switch>
             <Route path={'/testing'} component={ColorSchemeExample} />

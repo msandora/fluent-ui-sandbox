@@ -15,7 +15,7 @@ type CardProps = {
 };
 
 const UsersCommandBar: React.FunctionComponent<CardProps> = ({
-  panelName = 'panel1',
+  panelName = 'panel3',
   paragraph = 'Hello World',
 }) => {
   return (

@@ -20,8 +20,9 @@ const App = () => {
       <Provider theme={mergeThemes(teamsTheme, theme)}>
         <Layout>
           <Switch>
-            <Route exact path={'/'} component={UsersDashboard} />
             <Route path={'/testing'} component={ColorSchemeExample} />
+            <Route path={'/users'} component={UsersDashboard} />
+            <Route path={'/'} component={UsersDashboard} />
           </Switch>
         </Layout>
       </Provider>

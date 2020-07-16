@@ -18,7 +18,6 @@ const UsersCommandBar: React.FunctionComponent<CardProps> = ({
   panelName = 'panel1',
   paragraph = 'Hello World',
 }) => {
-  console.log(panelName);
   return (
     <Flex gap='gap.smaller' padding='padding.medium'>
       <UsersModal />

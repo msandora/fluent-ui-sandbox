@@ -15,9 +15,9 @@ const buttonStyle = {
 
 export const navMenuLinkGroups = [
   {
-    title: <Button text content='Buys' styles={buttonStyle} />,
+    title: <Button text content='Buys' styles={buttonStyle} key='buys' />,
     content: (
-      <Flex gap='gap.smaller' key='buys' column>
+      <Flex gap='gap.smaller' key='buys-options' column>
         <Button
           as={NavLink}
           to='/TVSpotBuys'
@@ -46,9 +46,9 @@ export const navMenuLinkGroups = [
     ),
   },
   {
-    title: <Button text content='Dub House' styles={buttonStyle}/>,
+    title: <Button text content='Dub House' styles={buttonStyle} key='dubHouse'/>,
     content: (
-      <Flex gap='gap.smaller' key='dubHouse' column>
+      <Flex gap='gap.smaller' key='dubHouse-options' column>
         <Button
           as={NavLink}
           to='/videoproductions'
@@ -69,9 +69,9 @@ export const navMenuLinkGroups = [
     ),
   },
   {
-    title: <Button text content='Tracking & Attribution' styles={buttonStyle}/>,
+    title: <Button text content='Tracking & Attribution' styles={buttonStyle} key='tracking'/>,
     content: (
-      <Flex gap='gap.smaller' key='tracking' column>
+      <Flex gap='gap.smaller' key='tracking-options' column>
         <Button
           as={NavLink}
           to='/dnis'
@@ -92,9 +92,9 @@ export const navMenuLinkGroups = [
     ),
   },
   {
-    title: <Button text content='Campaign Management' styles={buttonStyle}/>,
+    title: <Button text content='Campaign Management' styles={buttonStyle} key='campaignManagement'/>,
     content: (
-      <Flex gap='gap.smaller' key='campaignManagement' column>
+      <Flex gap='gap.smaller' key='campaignManagement-options' column>
         <Button
           as={NavLink}
           to='/clients'
@@ -123,9 +123,9 @@ export const navMenuLinkGroups = [
     ),
   },
   {
-    title: <Button text content='Account Management' styles={buttonStyle}/>,
+    title: <Button text content='Account Management' styles={buttonStyle} key='accountManagement'/>,
     content: (
-      <Flex gap='gap.smaller' key='accountManagement' column>
+      <Flex gap='gap.smaller' key='accountManagement-options' column>
         <Button
           as={NavLink}
           to='/accounts'
@@ -170,9 +170,9 @@ export const navMenuLinkGroups = [
     ),
   },
   {
-    title: <Button text content='System Administration' styles={buttonStyle}/>,
+    title: <Button text content='System Administration' styles={buttonStyle}key='system'/>,
     content: (
-      <Flex gap='gap.smaller' key='system' column>
+      <Flex gap='gap.smaller' key='system-options' column>
         <Button
           as={NavLink}
           to='/testing'

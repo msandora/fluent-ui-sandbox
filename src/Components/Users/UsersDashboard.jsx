@@ -1,15 +1,12 @@
 import React from 'react';
-import StaticTable from '../Tables/StaticTable';
-import { ColorSchemeExample } from '../Test/ColorSchemeExample';
-import MenuExample from '../Test/MenuExample';
+import UsersDetailsList from '../Users/UsersDetailsList';
+import UsersCommandBar from './UsersCommandBar';
 
 export const UsersDashboard = () => {
   return (
     <div>
-      <ColorSchemeExample />
-      <MenuExample />
-
-      <StaticTable />
+      <UsersCommandBar />
+      <UsersDetailsList />
     </div>
   );
 };

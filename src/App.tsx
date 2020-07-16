@@ -4,13 +4,13 @@ import { Switch, Route } from 'react-router-dom';
 import {
   Provider,
   mergeThemes,
-  // teamsHighContrastTheme,
-  teamsTheme,
+  //teamsDarkTheme,
+  teamsTheme
 } from '@fluentui/react-northstar';
 import { UsersDashboard } from './Components/Users/UsersDashboard';
 import { Layout } from './Components/Layout/Layout';
 import { theme } from './Theme/theme';
-// import { ColorSchemeExample } from './Components/Test/ColorSchemeExample';
+import { ColorSchemeExample } from './Components/Test/ColorSchemeExample';
 
 const App = () => {
   return (
@@ -19,6 +19,7 @@ const App = () => {
         <Layout>
           <Switch>
             <Route path={'/'} component={UsersDashboard} />
+            <Route path={'/testing'} component={ColorSchemeExample} />
           </Switch>
         </Layout>
       </Provider>

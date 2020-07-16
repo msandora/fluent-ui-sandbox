@@ -1,8 +1,6 @@
 import * as React from 'react';
 // import { useState } from 'react';
-
 import { Segment, Grid } from '@fluentui/react-northstar';
-import { layoutStyles } from './Layout.styles';
 import { NavBar } from '../NavBar/NavBar';
 import NavMenu from '../NavMenu/NavMenu';
 
@@ -11,18 +9,17 @@ interface ILayoutProps {
 }
 
 export const Layout = (props: ILayoutProps) => {
-  // const [navIsVisible, setNavIsVissible] = useState(true);
+ // const [navIsVisible, setNavIsVissible] = useState(true);
 
   return (
     <Grid
-      className={layoutStyles.layout_container}
       styles={{
         height: '100vh',
         overflow: 'hidden',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gridTemplateRows: '60px 1fr',
-        msGridColumns: '(1fr)[3]',
-        msGridRows: '60px 1fr',
+        gridTemplateColumns: 'repeat(5, 1fr)',
+        gridTemplateRows: 'max-content 1fr',
+        // msGridColumns: '(1fr)[3]',
+        // msGridRows: '45px 1fr',
       }}
     >
       <Segment
@@ -30,23 +27,22 @@ export const Layout = (props: ILayoutProps) => {
         content={<NavBar />}
         inverted
         styles={{
-          gridColumn: 'span 4',
+          gridColumn: 'span 5',
         }}
       />
       <Segment
-        className={layoutStyles.layout_sideBar}
-        color='green'
         content={<NavMenu />}
-        inverted
         styles={{
           gridColumn: 'span 1',
+          overflowY: 'auto',
+          height: 'calc(100vh - 55px)' 
         }}
       />
       <Segment
-        className={layoutStyles.layout_content}
         content={props.children}
+        inverted
         styles={{
-          gridColumn: 'span 3',
+          gridColumn: 'span 4',
         }}
       />
     </Grid>

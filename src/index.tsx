@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { initializeIcons } from '@uifabric/icons';
-import Root from './Root';
+import App from './App';
 initializeIcons();
 
 ReactDOM.render(
   <BrowserRouter>
-    <Root />
+    <App />
   </BrowserRouter>,
   document.getElementById('root')
 );

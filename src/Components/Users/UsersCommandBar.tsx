@@ -1,21 +1,29 @@
 import * as React from 'react';
 import { Flex, Button } from '@fluentui/react-northstar';
 import {
-  ParticipantAddIcon,
+  //ParticipantAddIcon,
   EditIcon,
   ParticipantRemoveIcon,
 } from '@fluentui/react-icons-northstar';
+import UsersModal from './UsersModal/UsersModal';
+//import UsersForm from './UsersForm/UsersForm';
+import PanelDemo from './../Test/PanelDemo';
 
-const UsersCommandBar = () => {
+type CardProps = {
+  panelName: string;
+  paragraph?: string;
+};
+
+const UsersCommandBar: React.FunctionComponent<CardProps> = ({
+  panelName = 'panel1',
+  paragraph = 'Hello World',
+}) => {
+  console.log(panelName);
   return (
     <Flex gap='gap.smaller' padding='padding.medium'>
-      <Button
-        icon={<ParticipantAddIcon />}
-        size='medium'
-        content='Add User'
-        iconPosition='before'
-        secondary
-      />
+      <UsersModal />
+      <PanelDemo panelName={panelName} paragraph={paragraph} />
+
       <Button
         icon={<EditIcon />}
         size='medium'

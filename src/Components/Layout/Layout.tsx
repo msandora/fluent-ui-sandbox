@@ -17,7 +17,9 @@ interface ILayoutProps {
 const Layout = (props: ILayoutProps) => {
   //const classNames: any = appStyles();
 
-  const [navIsVisible, setNavIsVissible] = useState(true);
+  const [navIsVisible, 
+    //setNavIsVissible
+  ] = useState(true);
   // const [loadingMessage, setLoadingMessage] = useState<string>('');
 
   return (

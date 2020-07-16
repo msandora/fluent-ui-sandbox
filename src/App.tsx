@@ -4,15 +4,17 @@ import { Switch, Route } from 'react-router-dom';
 import {
   Provider,
   mergeThemes,
-  teamsDarkTheme,
+  //teamsDarkTheme,
   teamsTheme,
-  Segment,
 } from '@fluentui/react-northstar';
 
 import { UsersDashboard } from './Components/Users/UsersDashboard';
 import Layout from './Components/Layout/Layout';
 import { theme } from './Theme/theme';
 import { ColorSchemeExample } from './Components/Test/ColorSchemeExample';
+
+//import PanelDemo from './Components/Test/PanelDemo';
+
 
 const App = () => {
   return (

@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { initializeIcons } from '@uifabric/icons';
 import App from './App';
+import './index.css';
+
 initializeIcons();
 
 ReactDOM.render(

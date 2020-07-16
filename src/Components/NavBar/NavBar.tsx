@@ -1,22 +1,33 @@
 import * as React from 'react';
 import { Button, Flex, Avatar, Text } from '@fluentui/react-northstar';
-import { AcceptIcon } from '@fluentui/react-icons-northstar';
+import { AcceptIcon, MenuIcon } from '@fluentui/react-icons-northstar';
 
 export const NavBar = () => {
   return (
-    <Flex space='between' gap='gap.smaller' padding='padding.medium'>
+    <Flex
+      space='between'
+      gap='gap.smaller'
+      padding='padding.medium'
+      styles={{ height: '50px !important' }}
+    >
       <Button
-        icon={<AcceptIcon />}
-        content='Sandbox'
+        icon={
+          <MenuIcon
+            styles={({ theme: { siteVariables } }) => ({
+              color: siteVariables.colorScheme.brand.background1,
+            })}
+          />
+        }
+        content={<Text content='Sandbox' color='white' />}
         iconPosition='before'
-        text       
+        text
       />
       <Flex gap='gap.small'>
         <Text content='John Doe' color='white' />
         <Avatar
           name='John Doe'
           image='/images/user.png'
-          size='medium'
+          size='small'
           status={{
             color: 'green',
             icon: <AcceptIcon />,

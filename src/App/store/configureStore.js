@@ -1,8 +1,8 @@
 import { createStore } from 'redux';
-import rootReducer from '../reducers/rootReducer';
+import testReducer from '../../Components/Test/testReducer';
 
 export const configureStore = () => {
-  const store = createStore(rootReducer);
+  const store = createStore(testReducer);
 
   return store;
 };

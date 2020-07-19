@@ -1,5 +1,5 @@
 import React from 'react';
-import UsersDetailsList from '../Users/UsersDetailsList';
+import UsersDetailsList from './UsersDetailsList';
 import UsersCommandBar from './UsersCommandBar';
 
 export const UsersDashboard = () => {

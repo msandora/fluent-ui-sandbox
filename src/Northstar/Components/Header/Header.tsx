@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Flex, Avatar, Text } from '@fluentui/react-northstar';
 import { AcceptIcon, MenuIcon } from '@fluentui/react-icons-northstar';
 
-export const NavBar = () => {
+export const Header = () => {
   return (
     <Flex
       space='between'
@@ -23,7 +23,7 @@ export const NavBar = () => {
         text
       />
       <Flex gap='gap.small'>
-        <Text content='John Doe' color='white' />
+        <Text content='John Doe' color='white' styles={{lineHeight: '28px'}} />
         <Avatar
           name='John Doe'
           image='/images/user.png'

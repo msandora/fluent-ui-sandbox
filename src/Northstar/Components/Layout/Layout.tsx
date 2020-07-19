@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Stack, IStackTokens } from '@fluentui/react/lib/Stack';
 import NavMenu from '../NavMenu/NavMenu';
-import { NavBar } from '../NavBar/NavBar';
+import { Header } from '../Header/Header';
 import { Segment } from '@fluentui/react-northstar';
 import { layoutStyles } from './Layout.styles';
 
@@ -25,7 +25,7 @@ const Layout = (props: ILayoutProps) => {
   return (
     <Stack>
       <Segment
-        content={<NavBar />}
+        content={<Header />}
         inverted
         styles={({ theme: { siteVariables } }) => ({
           backgroundColor: siteVariables.colorScheme.brand.background2,

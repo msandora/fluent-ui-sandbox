@@ -8,3 +8,7 @@ body {
   overflow: hidden;
   height: 100%;
 }
+.ui-form__field div.ui-box,
+.ui-form__field input[type=text] {
+  width: 100%;
+}

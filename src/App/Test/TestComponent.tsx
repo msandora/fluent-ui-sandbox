@@ -5,9 +5,11 @@ import { Button } from '@fluentui/react-northstar';
 
 interface ITestComponentProps {
   data?: string[];
+  incrementCounter?: any;
+  decrementCounter?: any;
 }
 
-const mapState = (state: { data: any }) => ({
+const mapStateToProps = (state: { data: any }) => ({
   data: state.data,
 });
 
@@ -19,12 +21,13 @@ const mapDispatchToProps = {
 
 class TestComponent extends Component<ITestComponentProps> {
   render() {
-    const { data } = this.props;
+    const { data, incrementCounter, decrementCounter } = this.props;
     console.log(data);
     return (
       <div>
         <h1>TestComponent</h1>
         <div>The answer is: {data}</div>
+      
         <Button
           //@ts-ignore
           onClick={(e) => incrementCounter(e.target.name)}
@@ -46,4 +49,4 @@ class TestComponent extends Component<ITestComponentProps> {
   }
 }
 
-export default connect(mapState)(TestComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(TestComponent);

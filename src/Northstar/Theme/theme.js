@@ -1,4 +1,4 @@
-export const theme = {
+export const northStarTheme = {
   componentVariables: {
     // 💡 `colorScheme` is the object containing all color tokens
     Box: ({ colorScheme }) => ({
@@ -24,12 +24,12 @@ export const theme = {
     Table: {
       root: ({ variables }) => ({
         backgroundColor: variables.backgroundColor,
-        width: '100%'
+        width: '100%',
       }),
     },
     Segment: {
       root: () => ({
-        padding: 0
+        padding: 0,
       }),
     },
   },

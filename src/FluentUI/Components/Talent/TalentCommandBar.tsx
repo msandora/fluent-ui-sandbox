@@ -5,9 +5,9 @@ import {
   EditIcon,
   ParticipantRemoveIcon,
 } from '@fluentui/react-icons-northstar';
-import UsersModal from './UsersModal/UsersModal';
+import UsersModal from './TalentModal/TalentModal';
 //import UsersForm from './UsersForm/UsersForm';
-import PanelDemo from './../Test/PanelDemo';
+import PanelDemo from '../../../App/Test/PanelDemo';
 
 type CardProps = {
   panelName: string;

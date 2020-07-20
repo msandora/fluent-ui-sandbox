@@ -30,7 +30,7 @@ export const styles = (props: ILayoutStyleProps): ILayoutStyles => {
         maxWidth: 280,
         overflowY: 'auto',
         borderRight: '1.5px solid ' + getTheme().palette.themeSecondary,
-        backgroundColor: theme.palette.themeSecondary,
+        backgroundColor: getTheme().palette.themeSecondary,
       },
     ],
     content: {

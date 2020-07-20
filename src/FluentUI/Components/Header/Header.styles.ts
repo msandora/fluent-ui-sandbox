@@ -8,8 +8,7 @@ export const styles = (props: IHeaderStyleProps): IHeaderStyles => {
   return {
     root: [
       {
-        backgroundColor: 'purple',
-
+        backgroundColor: 'purple !important',
       },
     ],
     container: [

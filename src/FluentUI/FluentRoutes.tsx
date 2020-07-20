@@ -44,9 +44,11 @@ const FluentRoutes: React.FC = () => {
     // load theme if saved in local storage
     const theme = localStorage.getItem('Theme');
     if (theme) setTheme(theme);
+    console.log(theme);
 
     // eslint-disable-next-line
   }, []);
+  console.log("selectedTheme", selectedTheme);
 
   return (
     <Customizer {...selectedTheme}>

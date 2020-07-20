@@ -2,8 +2,19 @@ import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Nav, INavLink } from '@fluentui/react/lib/Nav';
 import { navMenuLinkGroups } from './navMenuLinkGroups';
+import { classNamesFunction } from '@fluentui/react/lib/Utilities';
 
-const NavMenu: React.FunctionComponent = () => {
+
+import {
+  INavMenuStyleProps,
+  INavMenuStyles,
+  INavMenuProps,
+} from './NavMenu.types';
+
+const getClassNames = classNamesFunction<INavMenuStyleProps, INavMenuStyles>();
+
+const NavMenu = (props: INavMenuProps) => {
+
   const history = useHistory();
 
   const handleLinkClick = (

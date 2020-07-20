@@ -50,18 +50,17 @@ const FluentRoutes: React.FC = () => {
 
   return (
     <Customizer {...selectedTheme}>
-      <LayoutFluent>
+      <LayoutFluent theme={selectedTheme}>
         <CommandBar
           styles={{
             root: {
               position: 'fixed',
-              top: 45,
-              left: 0,
+              top: 0,
+              left: 230,
               zIndex: 1000,
               width: '100%',
               borderBottom: `solid 1px`,
               borderBottomColor: getTheme().palette.themePrimary,
-              // boxShadow: Depths.depth8,
             },
           }}
           items={[

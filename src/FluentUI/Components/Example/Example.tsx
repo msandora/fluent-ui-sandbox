@@ -1,7 +1,7 @@
 //@ts-ignore
 import { styled } from '../../Utilities';
 import {
-  ExampleProps,
+  IExampleProps,
   IExampleStyleProps,
   IExampleStyles
 } from './Example.types';
@@ -13,7 +13,7 @@ import { styles } from './Example.styles';
 /**
 * Example description. Could be a variant of any other component's base.
 */
-const Example = styled<ExampleProps, IExampleStyleProps, IExampleStyles>(
+const Example = styled<IExampleProps, IExampleStyleProps, IExampleStyles>(
   ExampleBase,
   styles
 );

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 //@ts-ignore
 import { classNamesFunction } from '../../Utilities';
-import { ExampleProps } from './Example.types';
+import { IExampleProps } from './Example.types';
 import { IExampleStyleProps, IExampleStyles } from './Example.types';
 
 const getClassNames = classNamesFunction<IExampleStyleProps, IExampleStyles>();
 
  
-class ExampleBase extends Component<ExampleProps, IExampleStyleProps, IExampleStyles> {
+class ExampleBase extends Component<IExampleProps, IExampleStyleProps, IExampleStyles> {
   public render() {
     const {
       //className,

@@ -22,7 +22,7 @@ const mapDispatchToProps = {
 class TestComponent extends Component<ITestComponentProps> {
   render() {
     const { data, incrementCounter, decrementCounter } = this.props;
-    console.log(data);
+    //console.log(data);
     return (
       <div>
         <h1>TestComponent</h1>

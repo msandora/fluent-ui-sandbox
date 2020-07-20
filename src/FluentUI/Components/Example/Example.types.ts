@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ITheme, IStyle, IStyleFunctionOrObject } from '@fluentui/react';
 // import { ExampleBase } from './ExampleBase';
 
-export interface ExampleProps {
+export interface IExampleProps {
   focus: () => void;
   flag: boolean;
   styles?: IStyleFunctionOrObject<IExampleStyleProps, IExampleStyles>;

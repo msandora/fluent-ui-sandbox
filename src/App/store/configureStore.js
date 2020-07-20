@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import testReducer from '../Test/testReducer';
+import testReducer from '../TestArea/testReducer';
 
 export const configureStore = () => {
   const store = createStore(testReducer);

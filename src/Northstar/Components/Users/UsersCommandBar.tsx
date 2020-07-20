@@ -7,7 +7,7 @@ import {
 } from '@fluentui/react-icons-northstar';
 import UsersModal from './UsersModal/UsersModal';
 //import UsersForm from './UsersForm/UsersForm';
-import PanelDemo from '../../../App/Test/PanelDemo';
+import PanelDemo from '../../../App/TestArea/PanelDemo';
 
 type CardProps = {
   panelName: string;

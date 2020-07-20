@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import PanelDemo from './App/Test/PanelDemo';
+import PanelDemo from './App/TestArea/PanelDemo';
 
 
 type RootProps = {

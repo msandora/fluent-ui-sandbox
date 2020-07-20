@@ -11,7 +11,7 @@ import {
 import { UsersDashboard } from '../Northstar/Components/Users/UsersDashboard';
 import LayoutNorthstar from '../Northstar/Components/Layout/Layout';
 import { northStarTheme } from '../Northstar/Theme/theme';
-import TestComponent from '../App/Test/TestComponent';
+import TestComponent from '../App/TestArea/TestComponent';
 
 
 const NorthstarRoutes: React.FC = () => {

@@ -5,10 +5,7 @@ import { Route } from 'react-router-dom';
 import { Customizer, getTheme, ITheme, CommandBar } from '@fluentui/react';
 //Themes
 import { ExcelTheme, loadExcelTheme } from '../FluentUI/Theme/excel.theme';
-import {
-  PowerPointTheme,
-  loadPowerPointTheme,
-} from '../FluentUI/Theme/powerpoint.theme';
+import {PowerPointTheme,loadPowerPointTheme} from '../FluentUI/Theme/powerpoint.theme';
 import { WordTheme, loadWordTheme } from '../FluentUI/Theme/word.theme';
 //Components
 import LayoutFluent from '../FluentUI/Components/Layout/Layout';
@@ -58,7 +55,7 @@ const FluentRoutes: React.FC = () => {
           styles={{
             root: {
               position: 'fixed',
-              top: 0,
+              top: 45,
               left: 0,
               zIndex: 1000,
               width: '100%',

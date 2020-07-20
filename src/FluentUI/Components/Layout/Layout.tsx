@@ -23,7 +23,10 @@ const Layout = (props: ILayoutProps) => {
 
   return (
     <Stack>
-      <Header onToggleNavButton={() => setNavIsVissible(!navIsVisible)} />
+      <Header 
+      onToggleNavButton={() => setNavIsVissible(!navIsVisible)}
+      // onClickTheme={() => console.log('CLick!')} 
+      />
 
       <Stack
         horizontal

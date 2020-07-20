@@ -1,6 +1,4 @@
 import * as React from 'react';
-
-import TalentCommandBar from './TalentCommandBar';
 import { TextField } from '@fluentui/react/lib/TextField';
 import { Toggle } from '@fluentui/react/lib/Toggle';
 import { Fabric } from '@fluentui/react/lib/Fabric';

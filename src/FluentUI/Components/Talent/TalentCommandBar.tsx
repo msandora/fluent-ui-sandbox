@@ -1,45 +1,33 @@
 import * as React from 'react';
-import { Flex, Button } from '@fluentui/react-northstar';
-import {
-  //ParticipantAddIcon,
-  EditIcon,
-  ParticipantRemoveIcon,
-} from '@fluentui/react-icons-northstar';
-import UsersModal from './TalentModal/TalentModal';
-//import UsersForm from './UsersForm/UsersForm';
-import PanelDemo from '../../../App/Test/PanelDemo';
+import { CommandBar } from '@fluentui/react/';
 
-type CardProps = {
-  panelName: string;
-  paragraph?: string;
-};
-
-const UsersCommandBar: React.FunctionComponent<CardProps> = ({
-  panelName = 'panel3',
-  paragraph = 'Hello World',
-}) => {
+const TalentCommandBar = () => {
   return (
-    <Flex gap='gap.smaller' padding='padding.medium'>
-      <UsersModal />
-      <PanelDemo panelName={panelName} paragraph={paragraph} />
-
-      <Button
-        icon={<EditIcon />}
-        size='medium'
-        content='Edit User'
-        iconPosition='before'
-        secondary
+    <div>
+      <CommandBar
+        items={[
+          {
+            key: 'addTalent',
+            name: 'Add Talent',
+            iconProps: { iconName: 'AddFriend' },
+            onClick: () => alert('Add Talent'),
+          },
+          {
+            key: 'editTalent',
+            name: 'Edit Talent',
+            iconProps: { iconName: 'AccountManagement' },
+            onClick: () => alert('Edit Talent'),
+          },
+          {
+            key: 'removeTalent',
+            name: 'Remove Talent',
+            iconProps: { iconName: 'UserRemove' },
+            onClick: () => alert('Remove Talent'),
+          },
+        ]}
       />
-      <Button
-        icon={<ParticipantRemoveIcon />}
-        size='medium'
-        content='Remove User'
-        iconPosition='before'
-        secondary
-        disabled
-      />
-    </Flex>
+    </div>
   );
 };
 
-export default UsersCommandBar;
+export default TalentCommandBar;

@@ -5,7 +5,10 @@ import { Route } from 'react-router-dom';
 import { Customizer, getTheme, ITheme, CommandBar } from '@fluentui/react';
 //Themes
 import { ExcelTheme, loadExcelTheme } from '../FluentUI/Theme/excel.theme';
-import { PowerPointTheme, loadPowerPointTheme } from '../FluentUI/Theme/powerpoint.theme';
+import {
+  PowerPointTheme,
+  loadPowerPointTheme,
+} from '../FluentUI/Theme/powerpoint.theme';
 import { WordTheme, loadWordTheme } from '../FluentUI/Theme/word.theme';
 //Components
 import LayoutFluent from '../FluentUI/Components/Layout/Layout';
@@ -47,7 +50,7 @@ const FluentRoutes: React.FC = () => {
 
     // eslint-disable-next-line
   }, []);
- 
+
   return (
     <Customizer {...selectedTheme}>
       <LayoutFluent>
@@ -109,7 +112,12 @@ const FluentRoutes: React.FC = () => {
             },
           ]}
         />
-        <Route exact path={'/fluent'} component={TalentDashboard} />
+        <Route exact path={'/fluent/testing'} component={TalentDashboard} />
+        <Route
+          exact
+          path={['/fluent/users', '/fluent/']}
+          component={TalentDashboard}
+        />
       </LayoutFluent>
     </Customizer>
   );

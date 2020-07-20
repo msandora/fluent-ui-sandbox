@@ -1,5 +1,5 @@
 import { mergeStyleSets, getTheme } from '@fluentui/react/lib/Styling';
-//unable to retrieve theme colors here
+// unable to retrieve theme colors here
 // const theme = getTheme();
 
 export const layoutStyles = mergeStyleSets({
@@ -12,7 +12,7 @@ export const layoutStyles = mergeStyleSets({
   layout_sideBar: {
     maxWidth: 280,
     overflowY: 'auto',
-    borderRight: '2px solid ' + getTheme().palette.themePrimary,
+    // borderRight: '2px solid ' + getTheme().palette.themePrimary,
     backgroundColor: getTheme().palette.themePrimary,
   },
   layout_content: {

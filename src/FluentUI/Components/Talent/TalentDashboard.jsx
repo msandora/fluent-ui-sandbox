@@ -1,11 +1,12 @@
-import React from 'react';
-// import UsersDetailsList from './UsersDetailsList';
-// import UsersCommandBar from './UsersCommandBar';
+import * as React from 'react';
+import TalentDetailsList from './TalentDetailsList';
+import TalentCommandBar from './TalentCommandBar';
 
 export const TalentDashboard = () => {
   return (
     <div>
-      <span>TalentDashboard</span>
+      <TalentCommandBar />
+      <TalentDetailsList />
     </div>
   );
 };

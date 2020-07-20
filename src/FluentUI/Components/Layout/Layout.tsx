@@ -36,6 +36,7 @@ const Layout = (props: ILayoutProps) => {
           className={layoutStyles.layout_sideBar}
           styles={{
             root: {
+              borderRight: '1.5px solid ' + getTheme().palette.white,
               backgroundColor: getTheme().palette.themeSecondary,
               maxWidth: navIsVisible ? 230 : 45,
               minWidth: navIsVisible ? 230 : 45,

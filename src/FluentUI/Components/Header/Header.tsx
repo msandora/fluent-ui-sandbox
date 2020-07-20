@@ -4,7 +4,6 @@ import {
   CommandBar,
   ICommandBarItemProps,
 } from '@fluentui/react/lib/CommandBar';
-//import { Depths } from '@uifabric/fluent-theme';
 
 interface IHeaderProps {
   onToggleNavButton(): void;

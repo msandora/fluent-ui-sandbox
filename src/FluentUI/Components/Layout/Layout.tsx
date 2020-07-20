@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { getTheme } from '@fluentui/react';
+
 import { Stack, IStackTokens } from '@fluentui/react/lib/Stack';
 import { layoutStyles } from './Layout.styles';
 import Header from '../Header/Header';
@@ -34,6 +36,7 @@ const Layout = (props: ILayoutProps) => {
           className={layoutStyles.layout_sideBar}
           styles={{
             root: {
+              backgroundColor: getTheme().palette.themeSecondary,
               maxWidth: navIsVisible ? 230 : 45,
               minWidth: navIsVisible ? 230 : 45,
             },
@@ -42,7 +45,15 @@ const Layout = (props: ILayoutProps) => {
           <NavMenu />
         </Stack.Item>
 
-        <Stack.Item grow={2} className={layoutStyles.layout_content}>
+        <Stack.Item
+          grow={2}
+          className={layoutStyles.layout_content}
+          styles={{
+            root: {
+              backgroundColor: getTheme().palette.themePrimary,
+            },
+          }}
+        >
           {props.children}
         </Stack.Item>
       </Stack>

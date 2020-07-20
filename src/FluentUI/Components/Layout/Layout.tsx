@@ -12,10 +12,16 @@ import { Stack, IStackTokens } from '@fluentui/react/lib/Stack';
 import Header from '../Header/Header';
 import NavMenu from '../../../FluentUI/Components/NavMenu/NavMenu';
 import { classNamesFunction } from '@fluentui/react/lib/Utilities';
+
 import { ExcelTheme, loadExcelTheme } from '../../Theme/excel.theme';
+import { PowerPointTheme, loadPowerPointTheme } from '../../Theme/powerpoint.theme';
+import { WordTheme, loadWordTheme } from '../../Theme/word.theme';
 
 const getClassNames = classNamesFunction<ILayoutStyleProps, ILayoutStyles>();
-const theme = loadExcelTheme();
+
+
+// I need this to toggle between themes
+const theme = loadWordTheme();
 
 const stackTokens: IStackTokens = {
   childrenGap: 20,
@@ -32,7 +38,7 @@ const Layout = (props: ILayoutProps) => {
     <Stack>
       <Header 
       onToggleNavButton={() => setNavIsVissible(!navIsVisible)}
-      // onClickTheme={() => console.log('CLick!')} 
+      onClickTheme={() => setNavIsVissible(!navIsVisible)} 
       />
 
       <Stack

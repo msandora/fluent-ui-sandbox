@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Fragment } from 'react';
 import { getTheme, ITheme } from '@fluentui/react/lib/Styling';
 
 import {
@@ -15,9 +15,11 @@ import {
 
 //Themes
 import { ExcelTheme, loadExcelTheme } from '../../Theme/excel.theme';
-import {PowerPointTheme,loadPowerPointTheme} from '../../Theme/powerpoint.theme';
+import {
+  PowerPointTheme,
+  loadPowerPointTheme,
+} from '../../Theme/powerpoint.theme';
 import { WordTheme, loadWordTheme } from '../../Theme/word.theme';
-
 
 const Header = (props: IHeaderProps) => {
   const [selectedTheme, setSelectedTheme] = useState<ITheme>();
@@ -25,6 +27,8 @@ const Header = (props: IHeaderProps) => {
   const onClickTheme = (themeName: string) => {
     // save theme across sessions
     localStorage.setItem('Theme', themeName);
+    console.log("header.themeName", themeName);
+    console.log("header.selectedTheme", selectedTheme);
 
     setTheme(themeName);
   };
@@ -38,7 +42,6 @@ const Header = (props: IHeaderProps) => {
       case ExcelTheme:
         setSelectedTheme(loadExcelTheme());
         break;
-
       default:
         setSelectedTheme(loadWordTheme());
         break;
@@ -53,7 +56,7 @@ const Header = (props: IHeaderProps) => {
 
     // eslint-disable-next-line
   }, []);
- 
+
   const commandBarItems: ICommandBarItemProps[] = [
     {
       key: 'navToggle',
@@ -82,9 +85,7 @@ const Header = (props: IHeaderProps) => {
             key: WordTheme,
             iconProps: {
               iconName:
-                selectedThemeTitle === WordTheme
-                  ? 'ColorSolid'
-                  : 'Color',
+                selectedThemeTitle === WordTheme ? 'ColorSolid' : 'Color',
             },
             text: 'WordTheme',
             onClick: () => onClickTheme(WordTheme),
@@ -93,9 +94,7 @@ const Header = (props: IHeaderProps) => {
             key: ExcelTheme,
             iconProps: {
               iconName:
-                selectedThemeTitle === ExcelTheme
-                  ? 'ColorSolid'
-                  : 'Color',
+                selectedThemeTitle === ExcelTheme ? 'ColorSolid' : 'Color',
             },
             text: 'ExcelTheme',
             onClick: () => onClickTheme(ExcelTheme),
@@ -104,9 +103,7 @@ const Header = (props: IHeaderProps) => {
             key: PowerPointTheme,
             iconProps: {
               iconName:
-                selectedThemeTitle === PowerPointTheme
-                  ? 'ColorSolid'
-                  : 'Color',
+                selectedThemeTitle === PowerPointTheme ? 'ColorSolid' : 'Color',
             },
             text: 'PowerPointTheme',
             onClick: () => onClickTheme(PowerPointTheme),
@@ -133,17 +130,19 @@ const Header = (props: IHeaderProps) => {
   ];
 
   return (
-    <CommandBar
-      items={commandBarItems}
-      farItems={commandBarFarItems}
-      styles={{
-        root: {
-          backgroundColor: getTheme().palette.themePrimary,
-          //padding: '0 10px',
-          zIndex: 10,
-        },
-      }}
-    />
+    <Fragment>
+      <CommandBar
+        items={commandBarItems}
+        farItems={commandBarFarItems}
+        styles={{
+          root: {
+            backgroundColor: getTheme().palette.themePrimary,
+            padding: '0 10px',
+            zIndex: 10,
+          },
+        }}
+      />
+    </Fragment>
   );
 };
 

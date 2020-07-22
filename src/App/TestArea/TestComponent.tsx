@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { incrementCounter, decrementCounter } from './testActions';
 import { Button } from '@fluentui/react-northstar';
+//import { openModal } from '../../Northstar/Components/Modals/modalActions';
 
 interface ITestComponentProps {
   data?: string[];
   incrementCounter?: any;
   decrementCounter?: any;
+  //openModal?: any;
+  // children?: React.ReactNode;
 }
 
 const mapStateToProps = (state: { data: any }) => ({
@@ -16,7 +19,7 @@ const mapStateToProps = (state: { data: any }) => ({
 const mapDispatchToProps = {
   incrementCounter,
   decrementCounter,
-  // openModal,
+  //openModal,
 };
 
 class TestComponent extends Component<ITestComponentProps> {
@@ -25,7 +28,7 @@ class TestComponent extends Component<ITestComponentProps> {
     //console.log(data);
     return (
       <div>
-        <h1>TestComponent</h1>
+        <h1>Redux Experiment</h1>
         <div>The answer is: {data}</div>
       
         <Button
@@ -41,6 +44,13 @@ class TestComponent extends Component<ITestComponentProps> {
           onClick={(e) => decrementCounter(e.target.name)}
           size='medium'
           content='Decrement'
+          iconPosition='before'
+          secondary
+        />
+        <Button
+          onClick={() => console.log('alert')}
+          size='medium'
+          content='Open Modal'
           iconPosition='before'
           secondary
         />

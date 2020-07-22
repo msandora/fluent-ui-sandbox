@@ -17,15 +17,13 @@ interface ILayoutProps {
 const Layout = (props: ILayoutProps) => {
   //const classNames: any = appStyles();
 
-  const [navIsVisible, 
-    //setNavIsVissible
-  ] = useState(true);
-  // const [loadingMessage, setLoadingMessage] = useState<string>('');
+  const [navIsVisible, setNavIsVissible] = useState(true);
+
 
   return (
     <Stack>
       <Segment
-        content={<Header />}
+        content={<Header onToggleNavButton={() => setNavIsVissible(!navIsVisible)}/>}
         inverted
         styles={({ theme: { siteVariables } }) => ({
           backgroundColor: siteVariables.colorScheme.brand.background2,

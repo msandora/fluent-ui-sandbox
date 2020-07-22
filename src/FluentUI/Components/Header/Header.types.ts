@@ -1,7 +1,7 @@
 import { IStyle, ITheme } from '@fluentui/react';
 
 export interface IHeaderProps {
-    show?: boolean,
+    // show?: boolean,
     theme?: any,
     children?: React.ReactNode;
     onToggleNavButton(): void;
@@ -16,6 +16,4 @@ export interface IHeaderStyleProps {
 export interface IHeaderStyles {
     root: IStyle;
     container?: IStyle;
-    sidebar?: IStyle;
-    content?: IStyle;
 }

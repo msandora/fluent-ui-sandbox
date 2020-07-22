@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { getTheme, ITheme, Customizer, CommandBar } from '@fluentui/react';
-import { ILayoutStyleProps, ILayoutStyles, ILayoutProps } from './Layout.types';
 import { styles } from './Layout.styles';
 // Fluent UI
 import { Stack, IStackTokens } from '@fluentui/react/lib/Stack';
 import { classNamesFunction } from '@fluentui/react/lib/Utilities';
-
+import { ILayoutStyleProps, ILayoutStyles, ILayoutProps } from './Layout.types';
+// Components
 import Header from '../Header/Header';
 import NavMenu from '../NavMenu/NavMenu';
 
@@ -33,7 +33,6 @@ const Layout = (props: ILayoutProps) => {
   const [selectedThemeTitle, setSelectedThemeTitle] = useState<string>(
     WordTheme
   );
-  const classNames = getClassNames(styles, { theme });
 
   const onClickTheme = (themeName: string) => {
     // save theme across sessions
@@ -41,6 +40,8 @@ const Layout = (props: ILayoutProps) => {
 
     setTheme(themeName);
   };
+
+  const classNames = getClassNames(styles, { theme });
 
   const setTheme = (themeName: string) => {
     setSelectedThemeTitle(themeName);
@@ -63,12 +64,12 @@ const Layout = (props: ILayoutProps) => {
     // load theme if saved in local storage
     const theme = localStorage.getItem('Theme');
     if (theme) setTheme(theme);
-    console.log(theme);
+    // console.log(theme);
 
     // eslint-disable-next-line
   }, []);
-  
-  console.log('selectedTheme', selectedTheme);
+
+  // console.log('selectedTheme', selectedTheme);
   return (
     <Customizer {...selectedTheme}>
       <Stack>
@@ -77,11 +78,12 @@ const Layout = (props: ILayoutProps) => {
             root: {
               position: 'fixed',
               top: 0,
-              left: 230,
+              left: 228.5,
+              right: 228,
               zIndex: 1000,
-              width: '100%',
-              borderBottom: `solid 1px`,
-              borderBottomColor: getTheme().palette.themePrimary,
+              width: 'auto',
+              borderBottom: 'solid 1px' + getTheme().palette.themePrimary,
+              // borderBottomColor: getTheme().palette.themePrimary,
             },
           }}
           items={[
@@ -149,8 +151,8 @@ const Layout = (props: ILayoutProps) => {
                 // But Color swap no longer works
                 borderRight: '1.5px solid ' + getTheme().palette.white,
                 backgroundColor: getTheme().palette.themeSecondary,
-                maxWidth: navIsVisible ? 230 : 45,
-                minWidth: navIsVisible ? 230 : 45,
+                maxWidth: navIsVisible ? 230 : '41.5px',
+                minWidth: navIsVisible ? 230 : '41.5px',
               },
             }}
           >

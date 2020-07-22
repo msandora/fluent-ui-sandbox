@@ -1,19 +1,25 @@
-import { IStyle, ITheme } from '@fluentui/react';
+import { IStyle, ITheme, IStyleFunctionOrObject } from '@fluentui/react';
+
+interface Layout {
+  focus: () => void;
+}
 
 export interface ILayoutProps {
-    show?: boolean,
-    theme?: any,
-    children?: React.ReactNode;
+  componentRef?: (_componentRef: Layout) => void;
+  theme?: ITheme;
+  styles?: IStyleFunctionOrObject<ILayoutStyleProps, ILayoutStyles>;
+
+  children?: React.ReactNode;
 }
 
 export interface ILayoutStyleProps {
-    theme: ITheme;
-    className?: string;
+  theme: ITheme;
+  className?: string;
 }
 
 export interface ILayoutStyles {
-    root: IStyle;
-    container: IStyle;
-    sidebar: IStyle;
-    content: IStyle;
+  root: IStyle;
+  container: IStyle;
+  sidebar: IStyle;
+  content: IStyle;
 }

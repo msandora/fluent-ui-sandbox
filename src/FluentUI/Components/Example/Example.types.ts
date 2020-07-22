@@ -1,35 +1,34 @@
-import * as React from 'react';
-import { ITheme, IStyle, IStyleFunctionOrObject } from '@fluentui/react';
-// import { ExampleBase } from './ExampleBase';
+import { IStyle, ITheme, IStyleFunctionOrObject } from '@fluentui/react';
 
-export interface IExampleProps {
+interface IExample {
   focus: () => void;
-  flag: boolean;
-  styles?: IStyleFunctionOrObject<IExampleStyleProps, IExampleStyles>;
-  theme?: ITheme;
 }
 
-/* 
-Have not been able to get this working, 
-moved theme/styles above 
-*/
+export interface IExampleProps {
+  componentRef?: (_componentRef: IExample) => void;
+  theme?: ITheme;
+  styles?: IStyleFunctionOrObject<IExampleStyleProps, IExampleStyles>;
 
-// export IExampleProps extends React.Props<ExampleBase> {
-//   componentRef?: (_componentRef: IExample) => void,
-//   theme?: ITheme,
-//   styles?: IStyleFunctionOrObject<IExampleStyleProps, IExampleStyles>,
-// }
+  children?: React.ReactNode;
+  show?: boolean;
+  root?: IStyle;
+  header?: IStyle;
+  footer?: IStyle;
+}
 
 export interface IExampleStyleProps {
   theme: ITheme;
   className?: string;
-  disabled: boolean;
-  checked: boolean;
+  disabled?: boolean;
+  checked?: boolean;
+  root?: IStyle;
+  header?: IStyle;
+  footer?: IStyle;
 }
 
 export interface IExampleStyles {
   root: IStyle;
-  header: IStyle;
-  footer: IStyle;
-  // etc.
+  myClass?: IStyle;
+  header?: IStyle;
+  footer?: IStyle;
 }

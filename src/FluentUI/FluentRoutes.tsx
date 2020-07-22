@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
 //Components
-import LayoutFluent from '../FluentUI/Components/Layout/Layout';
-import { TalentDashboard } from '../FluentUI/Components/Talent/TalentDashboard';
+import LayoutFluent from './Components/Layout/Layout';
+import { TalentDashboard } from './Components/Talent/TalentDashboard';
+import { ExampleBase } from './Components/Example/ExampleBase.base';
 
 const FluentRoutes: React.FC = () => {
   return (
       <LayoutFluent>
-        <Route exact path={'/fluent/testing'} component={TalentDashboard} />
+        <Route exact path={'/fluent/testing'} component={ExampleBase} />
         <Route
           exact
           path={['/fluent/users', '/fluent/']}

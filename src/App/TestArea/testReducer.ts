@@ -1,15 +1,17 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from './testConstants';
-import { createReducer } from "../reducers/reducerUtils";
+import { createReducer } from '../reducers/reducerUtils';
 
 const initialState = {
   data: 42,
 };
 
-const incrementCounter = (state: { data: number; }) => {
+const incrementCounter = (state: { data: number }) => {
+  console.log({ ...state, data: state.data + 1 });
   return { ...state, data: state.data + 1 };
 };
 
-const decrementCounter = (state: { data: number; }) => {
+const decrementCounter = (state: { data: number }) => {
+  console.log({ ...state, data: state.data - 1 });
   return { ...state, data: state.data - 1 };
 };
 

@@ -1,21 +1,18 @@
-//@ts-ignore
-import { styled } from '../../Utilities';
+import { styled } from '@fluentui/react/lib/Utilities';
+
 import {
   IExampleProps,
   IExampleStyleProps,
   IExampleStyles
 } from './Example.types';
-//@ts-ignore
 
-import { ExampleBase } from './ExampleBase';
+import { ExampleBase } from './ExampleBase.base';
 import { styles } from './Example.styles';
 
 /**
 * Example description. Could be a variant of any other component's base.
 */
-const Example = styled<IExampleProps, IExampleStyleProps, IExampleStyles>(
+export const Example = styled<IExampleProps, IExampleStyleProps, IExampleStyles>(
   ExampleBase,
   styles
 );
-
-export default Example;

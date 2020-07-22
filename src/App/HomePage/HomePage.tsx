@@ -4,8 +4,11 @@ import {
   Provider,
   // mergeThemes,
   //teamsDarkTheme,
-  teamsTheme, Button
+  teamsTheme,
+  Button,
 } from '@fluentui/react-northstar';
+import { Segment } from '@fluentui/react-northstar';
+import TestComponent from '../TestArea/TestComponent';
 
 const HomePage = () => {
   return (
@@ -13,16 +16,22 @@ const HomePage = () => {
       <Button
         as={NavLink}
         to='/northstar'
-        content='Northstar UI'
+        content='Northstar UI Example'
         iconPosition='before'
         text
       />
       <Button
         as={NavLink}
         to='/fluent'
-        content='Fluent UI'
+        content='Fluent UI Example'
         iconPosition='before'
         text
+      />
+      <Segment
+        content={<TestComponent />}
+        styles={() => ({
+          height: 'calc(100vh - 50px)',
+        })}
       />
     </Provider>
   );

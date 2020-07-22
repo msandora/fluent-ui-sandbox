@@ -4,17 +4,17 @@ import { IStackTokens } from '@fluentui/react/lib/Stack';
 
 export const styles = (props: ILayoutStyleProps): ILayoutStyles => {
   const { theme } = props;
-  // console.log('layout.styles', getTheme().palette.themeSecondary);
+  //console.log('layout.styles', theme);
   return {
     root: [
       {
-        display: 'flex',
-        borderTop: '4px solid ' + theme.palette.themeDark,
-        flexFlow: 'column nowrap',
-        alignItems: 'stretch',
-        height: 'auto',
-        minWidth: '400px',
-        maxWidth: '1000px',
+        position: 'fixed',
+        top: 0,
+        left: 228.5,
+        right: 228,
+        zIndex: 1000,
+        width: 'auto',
+        borderBottom: 'solid 1px' + theme.palette.themePrimary,
       },
     ],
     container: [
@@ -22,21 +22,20 @@ export const styles = (props: ILayoutStyleProps): ILayoutStyles => {
         display: 'flex',
         width: '100%',
         height: 'calc(100vh - 45px)',
-        // backgroundColor: getTheme().palette.themePrimary,
+        // backgroundColor: 'red',
       },
     ],
     sidebar: [
       {
         maxWidth: 280,
         overflowY: 'auto',
-        borderRight: '1.5px solid ' + getTheme().palette.themeSecondary,
-        backgroundColor: getTheme().palette.themeSecondary,
+        borderRight: '1.5px solid ' + getTheme().palette.white,
+        backgroundColor: theme.palette.themeSecondary,
       },
     ],
     content: {
       alignitems: 'stretch',
-      marginLeft: 0 + ' !important',
-      backgroundColor: getTheme().palette.themePrimary,
+      backgroundColor: theme.palette.themePrimary,
     },
   };
 };

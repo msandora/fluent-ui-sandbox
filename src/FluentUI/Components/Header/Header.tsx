@@ -137,7 +137,7 @@ const Header = (props: IHeaderProps) => {
         styles={{
           root: {
             backgroundColor: getTheme().palette.themePrimary,
-            padding: '0',
+            padding: '0 10px 0 0',
             zIndex: 10,
           },
         }}

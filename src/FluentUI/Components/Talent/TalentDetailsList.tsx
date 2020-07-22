@@ -1,17 +1,26 @@
 import * as React from 'react';
-import { TextField } from '@fluentui/react/lib/TextField';
-import { Toggle } from '@fluentui/react/lib/Toggle';
+// Fluent UI
 import { Fabric } from '@fluentui/react/lib/Fabric';
-import { Announced } from '@fluentui/react/lib/Announced';
+// import { Announced } from '@fluentui/react/lib/Announced';
+// import { TextField } from '@fluentui/react/lib/TextField';
+// import { Toggle } from '@fluentui/react/lib/Toggle';
+import { mergeStyleSets } from '@fluentui/react/lib/Styling';
 import {
+  ScrollablePane,
+  ScrollbarVisibility,
+} from '@fluentui/react/lib/ScrollablePane';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection';
+import {
+  Selection,
   DetailsList,
   DetailsListLayoutMode,
-  Selection,
   SelectionMode,
   IColumn,
+  IDetailsHeaderProps,
+  ConstrainMode,
 } from '@fluentui/react/lib/DetailsList';
-import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection';
-import { mergeStyleSets } from '@fluentui/react/lib/Styling';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
 
 const classNames = mergeStyleSets({
   fileIconHeaderIcon: {
@@ -49,12 +58,12 @@ const classNames = mergeStyleSets({
     marginBottom: '20px',
   },
 });
-const controlStyles = {
-  root: {
-    margin: '0 30px 20px 0',
-    maxWidth: '300px',
-  },
-};
+// const controlStyles = {
+//   root: {
+//     margin: '0 30px 20px 0',
+//     maxWidth: '300px',
+//   },
+// };
 
 export interface ITalentDetailsListState {
   columns: IColumn[];
@@ -93,7 +102,8 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
         name: 'File Type',
         className: classNames.fileIconCell,
         iconClassName: classNames.fileIconHeaderIcon,
-        ariaLabel: 'Column operations for File type, Press to sort on File type',
+        ariaLabel:
+          'Column operations for File type, Press to sort on File type',
         iconName: 'Page',
         isIconOnly: true,
         fieldName: 'name',
@@ -101,7 +111,13 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
         maxWidth: 16,
         onColumnClick: this._onColumnClick,
         onRender: (item: IDocument) => {
-          return <img src={item.iconName} className={classNames.fileIconImg} alt={item.fileType + ' file icon'} />;
+          return (
+            <img
+              src={item.iconName}
+              className={classNames.fileIconImg}
+              alt={item.fileType + ' file icon'}
+            />
+          );
         },
       },
       {
@@ -184,11 +200,67 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
   }
 
   public render() {
-    const { columns, isCompactMode, items, selectionDetails, isModalSelection, announcedMessage } = this.state;
+    const {
+      columns,
+      isCompactMode,
+      items,
+      // selectionDetails,
+      // isModalSelection,
+      // announcedMessage,
+    } = this.state;
+
+    const onRenderDetailsHeader: IRenderFunction<IDetailsHeaderProps> = (
+      props,
+      defaultRender
+    ) => {
+      if (!props) {
+        return null;
+      }
+      return (
+        <Sticky
+          stickyPosition={StickyPositionType.Header}
+          isScrollSynced={true}
+        >
+          {defaultRender!({
+            ...props,
+          })}
+        </Sticky>
+      );
+    };
 
     return (
-      <Fabric>
-        <div className={classNames.controlWrapper}>
+      <Fabric
+        style={{
+          height: 'calc(100vh - 54px)',
+          position: 'relative',
+          backgroundColor: 'white',
+        }}
+      >
+        <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
+          <MarqueeSelection selection={new Selection()}>
+            <DetailsList
+              constrainMode={ConstrainMode.unconstrained}
+              onRenderDetailsHeader={onRenderDetailsHeader}
+              items={items}
+              compact={isCompactMode}
+              columns={columns}
+              selectionMode={SelectionMode.multiple}
+              getKey={this._getKey}
+              setKey='multiple'
+              layoutMode={DetailsListLayoutMode.justified}
+              isHeaderVisible={true}
+              selection={this._selection}
+              selectionPreservedOnEmptyClick={true}
+              onItemInvoked={this._onItemInvoked}
+              enterModalSelectionOnTouch={true}
+              ariaLabelForSelectionColumn='Toggle selection'
+              ariaLabelForSelectAllCheckbox='Toggle selection for all items'
+              checkButtonAriaLabel='Row checkbox'
+            />
+          </MarqueeSelection>
+        </ScrollablePane>
+
+        {/* <div className={classNames.controlWrapper}>
           <Toggle
             label="Enable compact mode"
             checked={isCompactMode}
@@ -213,6 +285,7 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
         <div className={classNames.selectionDetails}>{selectionDetails}</div>
         <Announced message={selectionDetails} />
         {announcedMessage ? <Announced message={announcedMessage} /> : undefined}
+        
         {isModalSelection ? (
           <MarqueeSelection selection={this._selection}>
             <DetailsList
@@ -221,16 +294,16 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
               columns={columns}
               selectionMode={SelectionMode.multiple}
               getKey={this._getKey}
-              setKey="multiple"
+              setKey='multiple'
               layoutMode={DetailsListLayoutMode.justified}
               isHeaderVisible={true}
               selection={this._selection}
               selectionPreservedOnEmptyClick={true}
               onItemInvoked={this._onItemInvoked}
               enterModalSelectionOnTouch={true}
-              ariaLabelForSelectionColumn="Toggle selection"
-              ariaLabelForSelectAllCheckbox="Toggle selection for all items"
-              checkButtonAriaLabel="Row checkbox"
+              ariaLabelForSelectionColumn='Toggle selection'
+              ariaLabelForSelectAllCheckbox='Toggle selection for all items'
+              checkButtonAriaLabel='Row checkbox'
             />
           </MarqueeSelection>
         ) : (
@@ -240,18 +313,24 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
             columns={columns}
             selectionMode={SelectionMode.none}
             getKey={this._getKey}
-            setKey="none"
+            setKey='none'
             layoutMode={DetailsListLayoutMode.justified}
             isHeaderVisible={true}
             onItemInvoked={this._onItemInvoked}
           />
-        )}
+        )} */}
       </Fabric>
     );
   }
 
-  public componentDidUpdate(previousProps: any, previousState: ITalentDetailsListState) {
-    if (previousState.isModalSelection !== this.state.isModalSelection && !this.state.isModalSelection) {
+  public componentDidUpdate(
+    previousProps: any,
+    previousState: ITalentDetailsListState
+  ) {
+    if (
+      previousState.isModalSelection !== this.state.isModalSelection &&
+      !this.state.isModalSelection
+    ) {
       this._selection.setAllSelected(false);
     }
   }
@@ -260,17 +339,28 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
     return item.key;
   }
 
-  private _onChangeCompactMode = (ev: React.MouseEvent<HTMLElement>, checked: boolean): void => {
+  private _onChangeCompactMode = (
+    ev: React.MouseEvent<HTMLElement>,
+    checked: boolean
+  ): void => {
     this.setState({ isCompactMode: checked });
   };
 
-  private _onChangeModalSelection = (ev: React.MouseEvent<HTMLElement>, checked: boolean): void => {
+  private _onChangeModalSelection = (
+    ev: React.MouseEvent<HTMLElement>,
+    checked: boolean
+  ): void => {
     this.setState({ isModalSelection: checked });
   };
 
-  private _onChangeText = (ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, text: string): void => {
+  private _onChangeText = (
+    ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+    text: string
+  ): void => {
     this.setState({
-      items: text ? this._allItems.filter(i => i.name.toLowerCase().indexOf(text) > -1) : this._allItems,
+      items: text
+        ? this._allItems.filter((i) => i.name.toLowerCase().indexOf(text) > -1)
+        : this._allItems,
     });
   };
 
@@ -285,16 +375,24 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
       case 0:
         return 'No items selected';
       case 1:
-        return '1 item selected: ' + (this._selection.getSelection()[0] as IDocument).name;
+        return (
+          '1 item selected: ' +
+          (this._selection.getSelection()[0] as IDocument).name
+        );
       default:
         return `${selectionCount} items selected`;
     }
   }
 
-  private _onColumnClick = (ev: React.MouseEvent<HTMLElement>, column: IColumn): void => {
+  private _onColumnClick = (
+    ev: React.MouseEvent<HTMLElement>,
+    column: IColumn
+  ): void => {
     const { columns, items } = this.state;
     const newColumns: IColumn[] = columns.slice();
-    const currColumn: IColumn = newColumns.filter(currCol => column.key === currCol.key)[0];
+    const currColumn: IColumn = newColumns.filter(
+      (currCol) => column.key === currCol.key
+    )[0];
     newColumns.forEach((newCol: IColumn) => {
       if (newCol === currColumn) {
         currColumn.isSortedDescending = !currColumn.isSortedDescending;
@@ -309,18 +407,30 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
         newCol.isSortedDescending = true;
       }
     });
-    const newItems = _copyAndSort(items, currColumn.fieldName!, currColumn.isSortedDescending);
+    const newItems = _copyAndSort(
+      items,
+      currColumn.fieldName!,
+      currColumn.isSortedDescending
+    );
     this.setState({
       columns: newColumns,
       items: newItems,
     });
-    alert("_onColumnClick")
+    alert('_onColumnClick');
   };
 }
 
-function _copyAndSort<T>(items: T[], columnKey: string, isSortedDescending?: boolean): T[] {
+function _copyAndSort<T>(
+  items: T[],
+  columnKey: string,
+  isSortedDescending?: boolean
+): T[] {
   const key = columnKey as keyof T;
-  return items.slice(0).sort((a: T, b: T) => ((isSortedDescending ? a[key] < b[key] : a[key] > b[key]) ? 1 : -1));
+  return items
+    .slice(0)
+    .sort((a: T, b: T) =>
+      (isSortedDescending ? a[key] < b[key] : a[key] > b[key]) ? 1 : -1
+    );
 }
 
 function _generateDocuments() {
@@ -330,7 +440,9 @@ function _generateDocuments() {
     const randomFileSize = _randomFileSize();
     const randomFileType = _randomFileIcon();
     let fileName = _lorem(2);
-    fileName = fileName.charAt(0).toUpperCase() + fileName.slice(1).concat(`.${randomFileType.docType}`);
+    fileName =
+      fileName.charAt(0).toUpperCase() +
+      fileName.slice(1).concat(`.${randomFileType.docType}`);
     let userName = _lorem(2);
     userName = userName
       .split(' ')
@@ -352,8 +464,13 @@ function _generateDocuments() {
   return items;
 }
 
-function _randomDate(start: Date, end: Date): { value: number; dateFormatted: string } {
-  const date: Date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+function _randomDate(
+  start: Date,
+  end: Date
+): { value: number; dateFormatted: string } {
+  const date: Date = new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  );
   return {
     value: date.valueOf(),
     dateFormatted: date.toLocaleDateString(),
@@ -393,7 +510,8 @@ const FILE_ICONS: { name: string }[] = [
 ];
 
 function _randomFileIcon(): { docType: string; url: string } {
-  const docType: string = FILE_ICONS[Math.floor(Math.random() * FILE_ICONS.length)].name;
+  const docType: string =
+    FILE_ICONS[Math.floor(Math.random() * FILE_ICONS.length)].name;
   return {
     docType,
     url: `https://static2.sharepointonline.com/files/fabric/assets/item-types/16/${docType}.svg`,
@@ -416,10 +534,10 @@ const LOREM_IPSUM = (
 ).split(' ');
 let loremIndex = 0;
 function _lorem(wordCount: number): string {
-  const startIndex = loremIndex + wordCount > LOREM_IPSUM.length ? 0 : loremIndex;
+  const startIndex =
+    loremIndex + wordCount > LOREM_IPSUM.length ? 0 : loremIndex;
   loremIndex = startIndex + wordCount;
   return LOREM_IPSUM.slice(startIndex, loremIndex).join(' ');
 }
-
 
 export default TalentDetailsList;

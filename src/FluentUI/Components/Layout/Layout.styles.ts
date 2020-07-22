@@ -1,6 +1,5 @@
 import { getTheme } from '@fluentui/react/lib/Styling';
 import { ILayoutStyleProps, ILayoutStyles } from './Layout.types';
-import { IStackTokens } from '@fluentui/react/lib/Stack';
 
 export const styles = (props: ILayoutStyleProps): ILayoutStyles => {
   const { theme } = props;
@@ -38,9 +37,4 @@ export const styles = (props: ILayoutStyleProps): ILayoutStyles => {
       backgroundColor: theme.palette.themePrimary,
     },
   };
-};
-
-
-export const layoutTokens: IStackTokens = {
-  childrenGap: 20,
 };

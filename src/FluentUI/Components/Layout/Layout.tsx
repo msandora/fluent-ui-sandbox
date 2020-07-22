@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getTheme, ITheme, Customizer, CommandBar } from '@fluentui/react';
 import { styles } from './Layout.styles';
 // Fluent UI
-import { Stack, IStackTokens } from '@fluentui/react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { classNamesFunction } from '@fluentui/react/lib/Utilities';
 import { ILayoutStyleProps, ILayoutStyles, ILayoutProps } from './Layout.types';
 // Components
@@ -17,14 +17,12 @@ import {
   loadPowerPointTheme,
 } from '../../Theme/powerpoint.theme';
 import { WordTheme, loadWordTheme } from '../../Theme/word.theme';
+import { TeamsTheme, loadTeamsTheme } from '../../Theme/teams.theme';
+// import { ThemeSelect } from '../../Theme/ThemeSelect';
 
 const getClassNames = classNamesFunction<ILayoutStyleProps, ILayoutStyles>();
 // I need this to toggle between themes
 const theme = loadWordTheme();
-
-const stackTokens: IStackTokens = {
-  childrenGap: 20,
-};
 
 const Layout = (props: ILayoutProps) => {
   const [navIsVisible, setNavIsVissible] = useState(true);
@@ -52,7 +50,9 @@ const Layout = (props: ILayoutProps) => {
       case ExcelTheme:
         setSelectedTheme(loadExcelTheme());
         break;
-
+      case TeamsTheme:
+        setSelectedTheme(loadTeamsTheme());
+        break;
       default:
         setSelectedTheme(loadWordTheme());
         break;
@@ -78,21 +78,31 @@ const Layout = (props: ILayoutProps) => {
             root: {
               position: 'fixed',
               top: 0,
-              left: 228.5,
-              right: 228,
+              left: 40,
               zIndex: 1000,
               width: 'auto',
-              borderBottom: 'solid 1px' + getTheme().palette.themePrimary,
-              // borderBottomColor: getTheme().palette.themePrimary,
+              //borderBottom: 'solid 1px' + getTheme().palette.themePrimary,
+              //borderBottomColor: getTheme().palette.themePrimary,
             },
           }}
           items={[
             {
               key: 'theme',
               iconProps: { iconName: 'Color' },
-              text: 'Theme',
+              text: selectedThemeTitle,
               subMenuProps: {
                 items: [
+                  {
+                    key: TeamsTheme,
+                    iconProps: {
+                      iconName:
+                        selectedThemeTitle === TeamsTheme
+                          ? 'ColorSolid'
+                          : 'Color',
+                    },
+                    text: 'TeamsTheme',
+                    onClick: () => onClickTheme(TeamsTheme),
+                  },
                   {
                     key: WordTheme,
                     iconProps: {
@@ -136,12 +146,7 @@ const Layout = (props: ILayoutProps) => {
           onClickTheme={() => setSelectedThemeTitle(selectedThemeTitle)}
         />
 
-        <Stack
-          horizontal
-          grow
-          className={classNames.container}
-          tokens={stackTokens}
-        >
+        <Stack horizontal grow className={classNames.container}>
           <Stack.Item
             grow={1}
             className={classNames.sidebar}
@@ -164,6 +169,7 @@ const Layout = (props: ILayoutProps) => {
             className={classNames.content}
             styles={{
               root: {
+                padding: '0 25px',
                 backgroundColor: getTheme().palette.themePrimary,
               },
             }}

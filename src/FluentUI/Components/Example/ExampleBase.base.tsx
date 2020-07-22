@@ -1,7 +1,9 @@
 import * as React from 'react';
-
+// Fluent imports
 import { classNamesFunction } from '@fluentui/react/lib/Utilities';
-
+import { getTheme } from '@fluentui/react';
+// Anatomy imports
+import { styles } from './Example.styles';
 import {
   IExampleStyleProps,
   IExampleStyles,
@@ -9,30 +11,18 @@ import {
 } from './Example.types';
 
 const getClassNames = classNamesFunction<IExampleStyleProps, IExampleStyles>();
+const theme = getTheme();
 
-/**
- * Example with no default styles.
- * [Use the `styles` API to add your own styles.](https://github.com/OfficeDev/office-ui-fabric-react/wiki/Styling)
- */
-export class ExampleBase extends React.Component<
-  IExampleProps,
-  IExampleStyleProps
-> {
-  public render() {
-    const { styles, theme, root, header, footer } = this.props;
-    const classNames = getClassNames(styles, {
-      theme: theme!,
-      root,
-      header,
-      footer,
-      // Other props from IExampleStyleProps go here
-    });
-
+export class ExampleBase extends React.Component<IExampleProps> {
+  render() {
+    const classNames = getClassNames(styles, { theme });
     return (
       <React.Fragment>
-        <div className={classNames.header}>header</div>
-        <div className={classNames.root}>Root</div>
-        <div className={classNames.footer}>footer</div>
+        <h1>Example component</h1>
+        <h3>Demonstrate styling with FLuent UI</h3>
+        <div className={classNames.header}>This is BLUE</div>
+        <div className={classNames.root}>This is Red</div>
+        <div className={classNames.footer}>This is Green</div>
       </React.Fragment>
     );
   }

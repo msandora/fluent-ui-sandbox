@@ -1,19 +1,17 @@
 import { IExampleStyleProps, IExampleStyles } from './Example.types';
 
 export const styles = (props: IExampleStyleProps): IExampleStyles => {
-  const { theme, root, header, footer } = props;
-
-  return {
+  const { theme } = props;
+  return ({
     root: [
-      'ms-Example',
+      'ms-Example', // Add a custom class
       {
-        backgroundColor: 'red !important',
+        backgroundColor: theme.palette.redDark,
       },
       // className,
     ],
-    // myClass: [{ backgroundColor: 'purple !important' }],
     header: [{ backgroundColor: 'blue' }],
     footer: [{ backgroundColor: 'green' }],
     // etc
-  };
+  });
 };

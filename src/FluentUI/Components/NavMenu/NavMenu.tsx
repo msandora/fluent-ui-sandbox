@@ -11,7 +11,7 @@ import {
 } from './NavMenu.types';
 
 const getClassNames = classNamesFunction<INavMenuStyleProps, INavMenuStyles>();
-
+console.log(getClassNames)
 const NavMenu = (props: INavMenuProps) => {
   const history = useHistory();
 

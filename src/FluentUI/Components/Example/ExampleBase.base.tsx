@@ -1,3 +1,6 @@
+// Documentation: ComponentName.base.tsx
+// https://github.com/microsoft/fluentui/wiki/Component-Anatomy#componentnamebasetsx
+
 import * as React from 'react';
 // Fluent imports
 import { classNamesFunction } from '@fluentui/react/lib/Utilities';
@@ -20,9 +23,9 @@ export class ExampleBase extends React.Component<IExampleProps> {
       <React.Fragment>
         <h1>Example component</h1>
         <h3>Demonstrate styling with FLuent UI</h3>
-        <div className={classNames.header}>This is BLUE</div>
-        <div className={classNames.root}>This is Red</div>
-        <div className={classNames.footer}>This is Green</div>
+        <div className={classNames.header}>Primary Color</div>
+        <div className={classNames.root}>Secondary Color</div>
+        <div className={classNames.footer}>Tertiary Color</div>
       </React.Fragment>
     );
   }

@@ -1,45 +1,19 @@
-import * as React from 'react';
-import { useHistory } from 'react-router-dom';
-import { navMenuLinkGroups } from './navMenuLinkGroups';
-// Fluent UI
-import { Nav, INavLink } from '@fluentui/react/lib/Nav';
-import { classNamesFunction } from '@fluentui/react/lib/Utilities';
+import { styled } from '@fluentui/react/lib/Utilities';
+
 import {
+  INavMenuProps,
   INavMenuStyleProps,
   INavMenuStyles,
-  INavMenuProps,
 } from './NavMenu.types';
 
-const getClassNames = classNamesFunction<INavMenuStyleProps, INavMenuStyles>();
-console.log(getClassNames)
-const NavMenu = (props: INavMenuProps) => {
-  const history = useHistory();
+import { NavMenuBase } from './NavMenuBase.base';
+import { styles } from './NavMenu.styles';
 
-  const handleLinkClick = (
-    ev?: React.MouseEvent<HTMLElement>,
-    item?: INavLink
-  ) => {
-    if (ev && item) {
-      ev.preventDefault();
-      history.push(item.url);
-    }
-  };
-
-  return (
-    <React.Fragment>
-      <Nav
-        ariaLabel='Nav with nested links'
-        groups={navMenuLinkGroups}
-        styles={{
-          root: {
-            boxSizing: 'border-box',
-            overflowX: 'hidden',
-          },
-        }}
-        onLinkClick={handleLinkClick}
-      />
-    </React.Fragment>
-  );
-};
-
-export default NavMenu;
+/**
+ * NavMenu description. Could be a variant of any other component's base.
+ */
+export const NavMenu = styled<
+  INavMenuProps,
+  INavMenuStyleProps,
+  INavMenuStyles
+>(NavMenuBase, styles);

@@ -1,19 +1,24 @@
-import { IStyle, ITheme } from '@fluentui/react';
+import { IStyle, ITheme, IStyleFunctionOrObject } from '@fluentui/react';
+
+interface IHeader {
+  focus: () => void;
+}
 
 export interface IHeaderProps {
-    // show?: boolean,
-    theme?: any,
-    children?: React.ReactNode;
-    onToggleNavButton(): void;
-    onClickTheme?(): void;
+  componentRef?: (_componentRef: IHeader) => void;
+  theme?: ITheme;
+  styles?: IStyleFunctionOrObject<IHeaderStyleProps, IHeaderStyles>;
+  children?: React.ReactNode;
+  onToggleNavButton(): void;
+  onClickTheme?(): void;
 }
 
 export interface IHeaderStyleProps {
-    theme: ITheme;
-    className?: string;
+  theme: ITheme;
+  className?: string;
 }
 
 export interface IHeaderStyles {
-    root: IStyle;
-    container?: IStyle;
+  root: IStyle;
+  container?: IStyle;
 }

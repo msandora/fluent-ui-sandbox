@@ -1,28 +1,15 @@
-import { getTheme } from '@fluentui/react/lib/Styling';
 import { IHeaderStyleProps, IHeaderStyles } from './Header.types';
-import { IStackTokens } from '@fluentui/react/lib/Stack';
 
 export const styles = (props: IHeaderStyleProps): IHeaderStyles => {
-  const { theme } = props;
-  // console.log('layout.styles', getTheme().palette.themeSecondary);
+  // const { theme } = props;
   return {
     root: [
+      'ms-Header', // Add a custom class
       {
-        backgroundColor: 'purple !important',
+        zIndex: 10,
       },
+      // className,
     ],
-    container: [
-      {
-        backgroundColor: 'purple',
-        //width: '100%',
-        //height: 'calc(100vh - 45px)',
-        // backgroundColor: getTheme().palette.themePrimary,
-      },
-    ],
+    // etc
   };
-};
-
-
-export const layoutTokens: IStackTokens = {
-  childrenGap: 20,
 };

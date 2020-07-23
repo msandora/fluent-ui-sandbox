@@ -1,3 +1,6 @@
+// Documentation: ComponentName.types.ts
+// https://github.com/microsoft/fluentui/wiki/Component-Anatomy#componentnametypests
+
 import { IStyle, ITheme, IStyleFunctionOrObject } from '@fluentui/react';
 
 interface IExample {

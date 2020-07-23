@@ -7,8 +7,8 @@ import { Stack } from '@fluentui/react/lib/Stack';
 import { classNamesFunction } from '@fluentui/react/lib/Utilities';
 import { ILayoutStyleProps, ILayoutStyles, ILayoutProps } from './Layout.types';
 // Components
-import Header from '../Header/HeaderBase.base';
-import NavMenu from '../NavMenu/NavMenu';
+import { Header } from '../Header/Header';
+import { NavMenu } from '../NavMenu/NavMenu';
 
 //Themes
 import { ExcelTheme, loadExcelTheme } from '../../Theme/excel.theme';

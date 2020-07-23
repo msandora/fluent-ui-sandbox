@@ -6,7 +6,7 @@ import {
   INavMenuStyles,
 } from './NavMenu.types';
 
-import { NavMenuBase } from './NavMenuBase.base';
+import NavMenuBase from './NavMenuBase.base';
 import { styles } from './NavMenu.styles';
 
 /**

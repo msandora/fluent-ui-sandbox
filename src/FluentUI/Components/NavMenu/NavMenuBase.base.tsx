@@ -1,5 +1,3 @@
-// Documentation: ComponentName.base.tsx
-// https://github.com/microsoft/fluentui/wiki/Component-Anatomy#componentnamebasetsx
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import { navMenuLinkGroups } from './navMenuLinkGroups';
@@ -17,10 +15,14 @@ import {
 
 const NavMenuBase = (props: INavMenuProps) => {
   const history = useHistory();
-  const getClassNames = classNamesFunction<INavMenuStyleProps, INavMenuStyles>();
+  const getClassNames = classNamesFunction<
+    INavMenuStyleProps,
+    INavMenuStyles
+  >();
   const theme = getTheme();
   const classNames = getClassNames(styles, { theme });
-
+  console.log(classNames);
+  
   const handleLinkClick = (
     ev?: React.MouseEvent<HTMLElement>,
     item?: INavLink
@@ -49,4 +51,3 @@ const NavMenuBase = (props: INavMenuProps) => {
 };
 
 export default NavMenuBase;
-

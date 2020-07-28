@@ -20,14 +20,10 @@ import { WordTheme, loadWordTheme } from '../../Theme/word.theme';
 import { TeamsTheme, loadTeamsTheme } from '../../Theme/teams.theme';
 // import { ThemeSelect } from '../../Theme/ThemeSelect';
 
-const getClassNames = classNamesFunction<ILayoutStyleProps, ILayoutStyles>();
-// I need this to toggle between themes
 let theme = loadTeamsTheme();
 
-
-// console.log(theme);
-
 const LayoutBase = (props: ILayoutProps) => {
+  const getClassNames = classNamesFunction<ILayoutStyleProps, ILayoutStyles>();
   const [navIsVisible, setNavIsVissible] = useState(true);
 
   const [selectedTheme, setSelectedTheme] = useState<ITheme>();
@@ -154,8 +150,8 @@ const LayoutBase = (props: ILayoutProps) => {
               root: {
                 // Trying to move this to Layout.styles.ts
                 // But Color swap no longer works
-                borderRight: '1.5px solid ' + getTheme().palette.white,
-                backgroundColor: getTheme().palette.themeSecondary,
+                // borderRight: '1.5px solid ' + getTheme().palette.white,
+                backgroundColor: getTheme().palette.themeDarker,
                 maxWidth: navIsVisible ? 230 : '41.5px',
                 minWidth: navIsVisible ? 230 : '41.5px',
               },
@@ -169,7 +165,7 @@ const LayoutBase = (props: ILayoutProps) => {
             className={classNames.content}
             styles={{
               root: {
-                backgroundColor: getTheme().palette.themePrimary,
+                backgroundColor: getTheme().palette.white,
               },
             }}
           >

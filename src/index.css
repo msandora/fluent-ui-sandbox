@@ -8,7 +8,29 @@ body {
   overflow: hidden;
   height: 100%;
 }
+
 .ui-form__field div.ui-box,
-.ui-form__field input[type=text] {
+.ui-form__field input[type='text'] {
   width: 100%;
+}
+
+/* .ms-Nav .ms-Nav-chevronButton,
+.ms-Nav a .ms-Button,
+.ms-Nav a .ms-Icon {
+  color: white;
+} */
+
+/* height/width */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: lightgrey;
 }

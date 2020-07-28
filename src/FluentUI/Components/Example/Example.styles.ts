@@ -1,5 +1,7 @@
 // Documentation: ComponentName.styles.ts
 // https://github.com/microsoft/fluentui/wiki/Component-Anatomy#componentnamestylests
+// More Documentation on styling
+// https://github.com/microsoft/fluentui/wiki/Component-Styling#using-a-styleable-component
 import { IExampleStyleProps, IExampleStyles } from './Example.types';
 
 export const styles = (props: IExampleStyleProps): IExampleStyles => {

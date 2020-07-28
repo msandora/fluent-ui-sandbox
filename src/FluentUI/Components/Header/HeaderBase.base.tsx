@@ -73,7 +73,7 @@ const HeaderBase = (props: IHeaderProps) => {
         },
         root: [
           {
-            backgroundColor: getTheme().palette.themePrimary,
+            backgroundColor: getTheme().palette.themeDark,
           },
         ],
       },
@@ -120,10 +120,10 @@ const HeaderBase = (props: IHeaderProps) => {
     {
       key: 'user',
       name: 'User',
-      text: 'User',
+      text: 'User Name',
       buttonStyles: {
         root: {
-          backgroundColor: getTheme().palette.themePrimary,
+          backgroundColor: getTheme().palette.themeDark,
           color: getTheme().palette.white,
         },
         rootHovered: { color: getTheme().palette.themePrimary },
@@ -142,8 +142,7 @@ const HeaderBase = (props: IHeaderProps) => {
           root: {
             padding: 0,
             zIndex: 10,
-            borderBottom: '1.5px solid ' + getTheme().palette.white,
-            backgroundColor: getTheme().palette.themePrimary,
+            backgroundColor: getTheme().palette.themeDark,
           },
         }}
       />

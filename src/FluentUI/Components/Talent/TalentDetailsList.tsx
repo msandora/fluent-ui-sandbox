@@ -58,12 +58,7 @@ const classNames = mergeStyleSets({
     marginBottom: '20px',
   },
 });
-// const controlStyles = {
-//   root: {
-//     margin: '0 30px 20px 0',
-//     maxWidth: '300px',
-//   },
-// };
+
 
 export interface ITalentDetailsListState {
   columns: IColumn[];
@@ -231,7 +226,7 @@ class TalentDetailsList extends React.Component<{}, ITalentDetailsListState> {
     return (
       <Fabric
         style={{
-          height: 'calc(100vh - 54px)',
+          height: 'calc(100vh - 90px)',
           position: 'relative',
           backgroundColor: 'white',
         }}

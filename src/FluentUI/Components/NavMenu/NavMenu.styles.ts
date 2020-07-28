@@ -1,4 +1,5 @@
 import { INavMenuStyleProps, INavMenuStyles } from './NavMenu.types';
+import { INavStyles } from '@fluentui/react/lib/Nav';
 
 export const styles = (props: INavMenuStyleProps): INavMenuStyles => {
   // const { theme } = props;
@@ -14,4 +15,20 @@ export const styles = (props: INavMenuStyleProps): INavMenuStyles => {
     ],
     // etc
   };
+};
+
+export const navStyles: Partial<INavStyles> = {
+  root: {
+    overflowY: 'hidden',
+    backgroundColor: 'red',
+
+  },
+  link: {
+    backgroundColor: 'green',
+    selectors: {
+      '.ms-Nav-compositeLink:hover &': {
+        // backgroundColor: 'transparent',
+      },
+    },
+  },
 };

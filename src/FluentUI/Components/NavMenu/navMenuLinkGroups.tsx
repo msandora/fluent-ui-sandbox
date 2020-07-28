@@ -9,6 +9,7 @@ export const navMenuLinkGroups: INavLinkGroup[] = [
         name: 'TV Spot Buys',
         icon: 'TVMonitor',
         url: '/fluent/testing',
+
       },
       {
         name: 'Infomercial Buys',

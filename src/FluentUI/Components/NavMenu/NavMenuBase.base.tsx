@@ -6,7 +6,7 @@ import { Nav, INavLink } from '@fluentui/react/lib/Nav';
 import { classNamesFunction } from '@fluentui/react/lib/Utilities';
 import { getTheme } from '@fluentui/react';
 // Anatomy imports
-import { styles } from './NavMenu.styles';
+import { styles, navStyles} from './NavMenu.styles';
 import {
   INavMenuStyleProps,
   INavMenuStyles,
@@ -38,12 +38,7 @@ const NavMenuBase = (props: INavMenuProps) => {
       <Nav
         ariaLabel='Nav with nested links'
         groups={navMenuLinkGroups}
-        styles={{
-          root: {
-            boxSizing: 'border-box',
-            overflowX: 'hidden',
-          },
-        }}
+        styles={navStyles}
         onLinkClick={handleLinkClick}
       />
     </React.Fragment>

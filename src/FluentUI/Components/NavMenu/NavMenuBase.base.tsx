@@ -21,7 +21,7 @@ const NavMenuBase = (props: INavMenuProps) => {
   >();
   const theme = getTheme();
   const classNames = getClassNames(styles, { theme });
-  console.log(classNames);
+  //console.log(classNames);
   
   const handleLinkClick = (
     ev?: React.MouseEvent<HTMLElement>,

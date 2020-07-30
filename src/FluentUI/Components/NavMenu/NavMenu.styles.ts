@@ -6,7 +6,7 @@ export const styles = (props: INavMenuStyleProps): INavMenuStyles => {
   return {
     root: [
       {
-        backgroundColor: 'green',
+        backgroundColor: 'green', // Just for testing
       }
     ],
     // etc
